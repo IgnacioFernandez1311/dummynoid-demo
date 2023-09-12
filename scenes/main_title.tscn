@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgsy2rfj7ccvh"]
+
+[ext_resource type="Texture2D" uid="uid://52gegq74u582" path="res://icon.png" id="1_fxaf6"]
+[ext_resource type="LabelSettings" uid="uid://bakpx7hc5b41y" path="res://assets/fonts/pixel_40_settings.tres" id="2_whfql"]
+[ext_resource type="LabelSettings" uid="uid://bb852c5jlikke" path="res://assets/fonts/pixel_20_settings.tres" id="3_rfe14"]
+
+[node name="MainTitle" type="HBoxContainer"]
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_fxaf6")
+
+[node name="Title" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MainTitleText" type="Label" parent="Title"]
+layout_mode = 2
+text = "Dummynoid"
+label_settings = ExtResource("2_whfql")
+vertical_alignment = 1
+
+[node name="ByText" type="Label" parent="Title"]
+layout_mode = 2
+text = "by Naferdev"
+label_settings = ExtResource("3_rfe14")
+horizontal_alignment = 2
+vertical_alignment = 1

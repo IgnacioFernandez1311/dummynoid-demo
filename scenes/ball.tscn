@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://2wdrm45w2spm"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_r41tf"]
+[ext_resource type="Texture2D" uid="uid://ctf48b2xgxvkf" path="res://assets/ball/bola2-b.png" id="1_ym2xa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0ye7"]
+radius = 8.0
+
+[sub_resource type="Curve" id="Curve_elb7d"]
+_data = [Vector2(0, 0.854545), 0.0, 0.0, 0, 0, Vector2(1, 0.318182), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_uu0wa"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.156863)
+
+[node name="Ball" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 21
+motion_mode = 1
+script = ExtResource("1_r41tf")
+metadata/_edit_group_ = true
+
+[node name="BallSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ym2xa")
+
+[node name="BallCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s0ye7")
+
+[node name="VisibleNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+amount = 6
+speed_scale = 3.0
+texture = ExtResource("1_ym2xa")
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_elb7d")
+color_ramp = SubResource("Gradient_uu0wa")
+
+[node name="SpeedTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="BallAngleTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="screen_exited" from="VisibleNotifier" to="." method="_on_visible_notifier_screen_exited"]
+[connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]
+[connection signal="timeout" from="BallAngleTimer" to="." method="_on_ball_angle_timer_timeout"]

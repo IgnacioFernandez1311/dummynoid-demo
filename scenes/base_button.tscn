@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7fivcmqjj8tg"]
+
+[ext_resource type="Texture2D" uid="uid://dxex1ni3c30fd" path="res://assets/title/Blue Button 1.png" id="1_fys64"]
+[ext_resource type="Texture2D" uid="uid://b0yvl6xajs6hk" path="res://assets/title/Blue Button 2.png" id="2_n6ypx"]
+[ext_resource type="Texture2D" uid="uid://drjl34v13mubb" path="res://assets/title/Blue-focus.png" id="3_siywm"]
+[ext_resource type="FontFile" uid="uid://c1yhcd0v3fkkv" path="res://assets/fonts/advanced_pixel-7.ttf" id="4_yptfy"]
+
+[sub_resource type="FontVariation" id="FontVariation_putxy"]
+base_font = ExtResource("4_yptfy")
+
+[node name="BaseButton" type="TextureButton"]
+offset_right = 64.0
+offset_bottom = 64.0
+texture_normal = ExtResource("1_fys64")
+texture_pressed = ExtResource("2_n6ypx")
+texture_hover = ExtResource("3_siywm")
+texture_focused = ExtResource("3_siywm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.164706, 0.164706, 0.164706, 0.164706)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = SubResource("FontVariation_putxy")
+theme_override_font_sizes/font_size = 20
+text = "Button"
+horizontal_alignment = 1
+vertical_alignment = 1

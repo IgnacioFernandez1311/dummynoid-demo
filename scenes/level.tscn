@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmhpgl2nrq60h"]
+
+[ext_resource type="Texture2D" uid="uid://biu7rqo3evxj0" path="res://assets/environment/background.png" id="1_31i1f"]
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_rv5w3"]
+[ext_resource type="PackedScene" uid="uid://1tcmbawunbcg" path="res://scenes/player.tscn" id="2_etqbf"]
+[ext_resource type="PackedScene" uid="uid://re3pbu8sdbha" path="res://scenes/borders.tscn" id="3_y2in3"]
+[ext_resource type="PackedScene" uid="uid://2wdrm45w2spm" path="res://scenes/ball.tscn" id="4_dsbxr"]
+[ext_resource type="PackedScene" uid="uid://kdq7hcmshj3o" path="res://scenes/stage_blocks.tscn" id="7_6cdbj"]
+[ext_resource type="AudioStream" uid="uid://iwuswfm24w3c" path="res://assets/audio/background.ogg" id="7_e7bkr"]
+[ext_resource type="AudioStream" uid="uid://cyh6d7o1xoks6" path="res://assets/audio/start.wav" id="8_pwqyg"]
+[ext_resource type="AudioStream" uid="uid://c0nyagbggaftm" path="res://assets/audio/lose.ogg" id="9_jihr4"]
+[ext_resource type="PackedScene" uid="uid://48go52pvut10" path="res://scenes/ui.tscn" id="9_n2pyw"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_rv5w3")
+
+[node name="BallsContainer" type="Node" parent="."]
+
+[node name="Ball" parent="BallsContainer" instance=ExtResource("4_dsbxr")]
+position = Vector2(168, 448)
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_31i1f")
+
+[node name="Player" parent="." instance=ExtResource("2_etqbf")]
+position = Vector2(143, 478)
+ui_path = NodePath("../UI")
+level_path = NodePath("..")
+
+[node name="Borders" parent="." instance=ExtResource("3_y2in3")]
+
+[node name="StageBlocks" parent="." instance=ExtResource("7_6cdbj")]
+position = Vector2(144, 96)
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_e7bkr")
+autoplay = true
+
+[node name="StartAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pwqyg")
+
+[node name="LoseAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jihr4")
+
+[node name="UI" parent="." instance=ExtResource("9_n2pyw")]
+layer = 2

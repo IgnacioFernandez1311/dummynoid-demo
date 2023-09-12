@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://ruxyk8l8tnxe"]
+
+[ext_resource type="LabelSettings" uid="uid://bakpx7hc5b41y" path="res://assets/fonts/pixel_40_settings.tres" id="1_3ejro"]
+[ext_resource type="Script" path="res://scripts/replay.gd" id="1_sy1ai"]
+[ext_resource type="PackedScene" uid="uid://c7fivcmqjj8tg" path="res://scenes/base_button.tscn" id="3_hja54"]
+[ext_resource type="AudioStream" uid="uid://c0nyagbggaftm" path="res://assets/audio/lose.ogg" id="4_8qmv0"]
+
+[node name="Replay" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 288.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sy1ai")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0313726, 0.231373, 0.658824)
+
+[node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 100
+
+[node name="Menu" type="VBoxContainer" parent="Margins"]
+layout_mode = 2
+
+[node name="YouLose" type="Label" parent="Margins/Menu"]
+layout_mode = 2
+text = "You Lose!"
+label_settings = ExtResource("1_3ejro")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Replay" type="HBoxContainer" parent="Margins/Menu"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReplayButton" parent="Margins/Menu/Replay" instance=ExtResource("3_hja54")]
+layout_mode = 2
+
+[node name="Label" parent="Margins/Menu/Replay/ReplayButton" index="0"]
+theme_override_colors/font_outline_color = Color(0.164706, 0.164706, 0.164706, 1)
+text = "Replay"
+
+[node name="Quit" type="HBoxContainer" parent="Margins/Menu"]
+layout_mode = 2
+alignment = 1
+
+[node name="QuitButton" parent="Margins/Menu/Quit" instance=ExtResource("3_hja54")]
+layout_mode = 2
+
+[node name="Label" parent="Margins/Menu/Quit/QuitButton" index="0"]
+theme_override_colors/font_outline_color = Color(0.164706, 0.164706, 0.164706, 1)
+text = "Menu"
+
+[node name="LoseAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8qmv0")
+autoplay = true
+
+[editable path="Margins/Menu/Replay/ReplayButton"]
+[editable path="Margins/Menu/Quit/QuitButton"]

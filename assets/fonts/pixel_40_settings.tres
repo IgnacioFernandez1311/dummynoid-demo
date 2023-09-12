@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://bakpx7hc5b41y"]
+
+[ext_resource type="FontFile" uid="uid://c1yhcd0v3fkkv" path="res://assets/fonts/advanced_pixel-7.ttf" id="1_fv04b"]
+
+[sub_resource type="FontVariation" id="FontVariation_5bngv"]
+base_font = ExtResource("1_fv04b")
+spacing_glyph = 2
+
+[resource]
+font = SubResource("FontVariation_5bngv")
+font_size = 40
+outline_size = 2
+outline_color = Color(0.109804, 0.0431373, 0.137255, 1)

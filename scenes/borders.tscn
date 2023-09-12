@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://re3pbu8sdbha"]
+
+[ext_resource type="Script" path="res://scripts/borders.gd" id="1_nyxl6"]
+[ext_resource type="AudioStream" uid="uid://cks7ftv1seko2" path="res://assets/audio/hit.wav" id="2_jf5jv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njngv"]
+size = Vector2(16, 528)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bp0nv"]
+size = Vector2(16, 320)
+
+[node name="Borders" type="Node2D"]
+script = ExtResource("1_nyxl6")
+
+[node name="Border" type="StaticBody2D" parent="." groups=["gr_border"]]
+position = Vector2(-8, 264)
+collision_layer = 16
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="BorderCollision" type="CollisionShape2D" parent="Border"]
+shape = SubResource("RectangleShape2D_njngv")
+
+[node name="Border2" type="StaticBody2D" parent="." groups=["gr_border"]]
+position = Vector2(296, 264)
+collision_layer = 16
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="BorderCollision" type="CollisionShape2D" parent="Border2"]
+shape = SubResource("RectangleShape2D_njngv")
+
+[node name="Border3" type="StaticBody2D" parent="." groups=["gr_border"]]
+position = Vector2(144, -8)
+rotation = 1.5708
+collision_layer = 16
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="BorderCollision" type="CollisionShape2D" parent="Border3"]
+position = Vector2(1.90735e-06, 0)
+shape = SubResource("RectangleShape2D_bp0nv")
+
+[node name="AudioHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jf5jv")

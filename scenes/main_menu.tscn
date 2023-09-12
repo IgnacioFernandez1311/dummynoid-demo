@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwn6hwe712voh"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_djqa5"]
+[ext_resource type="Texture2D" uid="uid://biu7rqo3evxj0" path="res://assets/environment/background.png" id="1_fmp8d"]
+[ext_resource type="PackedScene" uid="uid://dgsy2rfj7ccvh" path="res://scenes/main_title.tscn" id="2_i64tq"]
+[ext_resource type="PackedScene" uid="uid://c7fivcmqjj8tg" path="res://scenes/base_button.tscn" id="3_jm3h3"]
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_djqa5")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_fmp8d")
+
+[node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 100
+
+[node name="Menu" type="VBoxContainer" parent="Margins"]
+layout_mode = 2
+
+[node name="MainTitle" parent="Margins/Menu" instance=ExtResource("2_i64tq")]
+layout_mode = 2
+
+[node name="Play" type="HBoxContainer" parent="Margins/Menu"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayButton" parent="Margins/Menu/Play" instance=ExtResource("3_jm3h3")]
+layout_mode = 2
+
+[node name="Label" parent="Margins/Menu/Play/PlayButton" index="0"]
+theme_override_colors/font_outline_color = Color(0.164706, 0.164706, 0.164706, 1)
+text = "Play"
+
+[node name="Quit" type="HBoxContainer" parent="Margins/Menu"]
+layout_mode = 2
+alignment = 1
+
+[node name="QuitButton" parent="Margins/Menu/Quit" instance=ExtResource("3_jm3h3")]
+layout_mode = 2
+
+[node name="Label" parent="Margins/Menu/Quit/QuitButton" index="0"]
+theme_override_colors/font_outline_color = Color(0.164706, 0.164706, 0.164706, 1)
+text = "Quit"
+
+[editable path="Margins/Menu/Play/PlayButton"]
+[editable path="Margins/Menu/Quit/QuitButton"]

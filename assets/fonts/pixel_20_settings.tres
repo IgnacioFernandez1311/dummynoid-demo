@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://bb852c5jlikke"]
+
+[ext_resource type="FontFile" uid="uid://c1yhcd0v3fkkv" path="res://assets/fonts/advanced_pixel-7.ttf" id="1_d3t41"]
+
+[sub_resource type="FontVariation" id="FontVariation_afugx"]
+base_font = ExtResource("1_d3t41")
+spacing_glyph = 3
+
+[resource]
+font = SubResource("FontVariation_afugx")
+font_size = 20

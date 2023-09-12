@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3i4luovd5u8k"]
+
+[ext_resource type="Script" path="res://scripts/gift.gd" id="1_1rqxq"]
+[ext_resource type="Texture2D" uid="uid://b60asp8evjcr5" path="res://assets/gifts/gift-blue.png" id="1_r5idm"]
+[ext_resource type="Texture2D" uid="uid://blrljhkjlr0ni" path="res://assets/gifts/gift-green.png" id="2_oqn0b"]
+[ext_resource type="Texture2D" uid="uid://bm52yj8x1vge8" path="res://assets/gifts/gift-head.png" id="3_qintr"]
+[ext_resource type="Texture2D" uid="uid://h5otuhu442nc" path="res://assets/gifts/gift-heart.png" id="4_jgtmt"]
+[ext_resource type="Texture2D" uid="uid://dv7gq4anpy7gq" path="res://assets/gifts/gift-key2.png" id="5_6yl4q"]
+[ext_resource type="Texture2D" uid="uid://dglumo31j3e20" path="res://assets/gifts/gift-red.png" id="6_4tq4q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1c8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r5idm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oqn0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qintr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jgtmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6yl4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4tq4q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77jg7"]
+radius = 15.0
+
+[node name="Gift" type="RigidBody2D"]
+collision_layer = 8
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("1_1rqxq")
+metadata/_edit_group_ = true
+
+[node name="Sprites" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g1c8p")
+
+[node name="GiftCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_77jg7")
+
+[node name="VisibleNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.17233e-07, 4.17233e-07)
+scale = Vector2(0.8, 0.8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleNotifier" to="." method="_on_visible_notifier_screen_exited"]

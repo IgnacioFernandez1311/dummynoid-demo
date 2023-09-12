@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://48go52pvut10"]
+
+[ext_resource type="Texture2D" uid="uid://dcu4xxv38ivt4" path="res://assets/heart/Hearts.png" id="1_f57h1"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_gqmk5"]
+[ext_resource type="LabelSettings" uid="uid://bb852c5jlikke" path="res://assets/fonts/pixel_20_settings.tres" id="2_8magl"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_gqmk5")
+
+[node name="HeartSprite" type="Sprite2D" parent="."]
+position = Vector2(22, 21)
+texture = ExtResource("1_f57h1")
+hframes = 6
+vframes = 7
+frame = 30
+
+[node name="x" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 10.0
+offset_right = 46.0
+offset_bottom = 36.0
+text = "x"
+label_settings = ExtResource("2_8magl")
+
+[node name="HealthNumber" type="Label" parent="."]
+offset_left = 50.0
+offset_top = 10.0
+offset_right = 59.0
+offset_bottom = 36.0
+text = "3"
+label_settings = ExtResource("2_8magl")
+metadata/_edit_use_anchors_ = true
